@@ -8,7 +8,8 @@ public class PlacedToken : MonoBehaviour, IPointerDownHandler
 {
 
     public int id;
-    bool isPlaced = false;
+    [HideInInspector]
+    public bool isPlaced = false;
 
 	// Use this for initialization
 	void Start ()
@@ -30,10 +31,12 @@ public class PlacedToken : MonoBehaviour, IPointerDownHandler
         if (isPlaced)
         {
             Invoke("Pickup", 0.0f);
-            isPlaced = false;
+            //isPlaced = false;
         }
-        else
-            isPlaced = true;
+    }
+    public void OnMouseUp()
+    {
+        //isPlaced = true;
     }
 
     private void OnMouseOver()
@@ -41,6 +44,7 @@ public class PlacedToken : MonoBehaviour, IPointerDownHandler
         if (Input.GetMouseButtonDown(1))
         {
             CharacterSelector.ResetToken(id);
+            isPlaced = false;
         }
     }
 

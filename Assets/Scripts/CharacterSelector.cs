@@ -15,6 +15,7 @@ public class CharacterSelector : MonoBehaviour {
     static bool snapping = true;
     public float gridSize;
     Camera cam;
+    static float scale = 0.35f;
 
     static List<PlacedToken> tokens = new List<PlacedToken>();
 
@@ -43,6 +44,7 @@ public class CharacterSelector : MonoBehaviour {
             }
             if (Input.GetMouseButtonUp(0))
             {
+                heldToken.isPlaced = true;
                 heldToken = null;
                 holdingToken = false;
             }
@@ -62,6 +64,7 @@ public class CharacterSelector : MonoBehaviour {
             heldToken = Instantiate(blankToken).GetComponent<PlacedToken>();
             heldToken.GetComponent<SpriteRenderer>().sprite = character.GetComponent<Image>().sprite;
             heldToken.transform.position = Vector3.left * 100;
+            heldToken.transform.localScale = Vector3.one * scale;
             heldToken.id = character.id;
             tokens.Add(heldToken);
 
@@ -91,5 +94,12 @@ public class CharacterSelector : MonoBehaviour {
     public static void PickupToken (PlacedToken token)
     {
         heldToken = token;
+    }
+
+    public void Resize(float value)
+    {
+        scale = 0.35f * (1 + value);
+        foreach (PlacedToken token in tokens)
+            token.transform.localScale = Vector3.one * scale;
     }
 }

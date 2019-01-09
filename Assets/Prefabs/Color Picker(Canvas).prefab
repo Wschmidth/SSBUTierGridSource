@@ -756,6 +756,7 @@ MonoBehaviour:
   g: 0
   b: 0
   sprites: []
+  texts: []
 --- !u!1 &4586089858572826139
 GameObject:
   m_ObjectHideFlags: 0
