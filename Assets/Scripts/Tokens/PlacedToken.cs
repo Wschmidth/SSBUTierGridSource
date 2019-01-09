@@ -29,7 +29,7 @@ public class PlacedToken : MonoBehaviour, IPointerDownHandler
     {
         if (isPlaced)
         {
-            Invoke("Pickup", 0.1f);
+            Invoke("Pickup", 0.0f);
             isPlaced = false;
         }
         else

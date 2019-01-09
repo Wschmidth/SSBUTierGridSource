@@ -9,6 +9,7 @@ public class TokenManager : MonoBehaviour {
     public Sprite[] characterSprites;
     public int tokensPerRow;
     public float tokenDistance;
+    public Scrollbar scrollbar;
 
     static List<MenuToken> tokens = new List<MenuToken>();
 
@@ -24,6 +25,7 @@ public class TokenManager : MonoBehaviour {
             tokens.Add(newToken.GetComponent<MenuToken>());
         }
         Destroy(blankMenuToken);
+        //scrollbar.
 	}
 
     public static MenuToken FindToken(int id)
@@ -36,4 +38,6 @@ public class TokenManager : MonoBehaviour {
 
         return null;
     }
+
+    
 }

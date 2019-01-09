@@ -41,7 +41,7 @@ public class CharacterSelector : MonoBehaviour {
                 Vector3 pos = heldToken.transform.position + Vector3.zero;
                 heldToken.transform.position = new Vector3(Mathf.RoundToInt(pos.x / gridSize) * gridSize, Mathf.RoundToInt(pos.y / gridSize) * gridSize, 0);
             }
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonUp(0))
             {
                 heldToken = null;
                 holdingToken = false;
