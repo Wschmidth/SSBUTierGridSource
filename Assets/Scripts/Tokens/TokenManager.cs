@@ -14,7 +14,7 @@ public class TokenManager : MonoBehaviour {
     static List<MenuToken> tokens = new List<MenuToken>();
 
 	// Use this for initialization
-	void Start ()
+	void Awake ()
     {
         for (int i = 0; i < characterSprites.Length; i++)
         {
